@@ -1,12 +1,18 @@
 import sayHello from './lib/sayHello.js';
 sayHello();
 import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable, TimelineLite } from 'gsap';
+import header from "./_header";
+import './_perlin.js'
+header();
 
+
+import {updateViewportUnits} from "./_updateViewportUnits";
+updateViewportUnits();
 var tl = new TimelineLite()
 
 tl
 	.from( $('.logo__u'), 2, {
-  		y: -30
+  		y: -100
 })
 	.from( $('.logo__r'), 1, {
 		rotation: 18,

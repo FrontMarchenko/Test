@@ -1,0 +1,125 @@
+.header
+	position: absolute
+	top: 27px
+	left: 0
+	z-index: 2
+	transition: background .3s ease
+	&_dark
+		+mob
+			background-color: $body-font
+		+mobmin
+			.header
+				&__logo
+					.logo
+						svg
+							fill: $body-font
+				&__socials
+					.socials
+						svg
+							fill: $body-font
+				&__content
+					+mob
+						border-color: $headings-font
+			.nav
+				&__item
+					color: $body-font
+					&.is-active
+						&:before
+							background-color: $body-font
+
+	+mob
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		&.is-active
+			background-color: $body-font
+			.header__content
+				border-top-width: 1px
+		&_publishing
+			&.is-active
+				+gradient($publishing-0, $publishing-100)
+		&_releases
+			&.is-active
+				+gradient($releases-0, $releases-100)
+		&_article
+			&.is-active
+				+gradient($news-article-0, $news-article-100)
+		&_simple-artist
+			&.is-active
+				+gradient($simple-artist-page-0, $simple-artist-page-100)
+		&_about
+			&.is-active
+				+gradient($about-us-0, $about-us-100)
+		&_common
+			&.is-active
+				+gradient($terms-conditions-0, $terms-conditions-100)
+
+
+	&__logo
+		line-height: 0
+		padding: 0 28px
+		+mob
+			padding: 24px 20px
+
+	&__nav
+		margin-bottom: 20px
+		+mobmin
+			display: flex
+			justify-content: flex-start
+	&__content
+		margin-left: 12px
+		padding: 30px  28px
+		+mob
+			margin-left: 0
+			padding: 60px 10px
+			display: none
+			height: calc((var(--vh, 1) * 100) - 60px)
+			border-top: 0px solid
+			border-color: rgba(255, 255, 255, 0.5)
+			transition: border-top-width .3s ease
+	&__inner
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		height: 100%
+	&__socials
+		padding-left: 4px
+		+mob
+			padding-left: 0
+			display: flex
+			justify-content: center
+			.socials
+				a
+					&:not(:last-child)
+						margin-right: 24px
+	&__burger
+		display: none
+		position: absolute
+		right: 20px
+		top: 24px
+		border: none
+		background-color: transparent
+		-webkit-appearance: none
+		&.is-active
+			span
+				opacity: 0
+				&:first-child, &:last-child
+					opacity: 1
+					border-radius: 10px
+				&:first-child
+					transform: translate(0, 5px) rotate(45deg)
+				&:last-child
+					transform: translate(0, -5px) rotate(-45deg)
+		+mob
+			display: block
+		span
+			display: block
+			width: 16px
+			height: 1.57px
+			background-color: $white
+			transition: transform .3s ease, border-radius .3s ease
+			&:not(:last-child)
+				margin-bottom: 3.65px
+.is-mobile
+    overflow: hidden

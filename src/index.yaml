@@ -5,3 +5,5 @@ PageList:
   ready: 50
 - file: about.html
   ready: 50
+- file: perlin.html
+  ready: 50
