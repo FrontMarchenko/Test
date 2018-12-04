@@ -1,0 +1,36 @@
+---
+title: About
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+{{mixins.header({
+headerDark: true,
+nav: [
+{
+title: 'Artists'
+},
+{
+title: 'Releases'
+},
+{
+title: 'Publishing'
+},
+{
+title: 'News',
+active: true
+},
+{
+title: 'Studio'
+},
+{
+title: 'About us'
+},
+{
+title: 'Contact'
+}
+]
+})}}
+
+{% include "./partials/_about.html" %}
+{% endblock %}

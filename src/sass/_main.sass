@@ -124,9 +124,10 @@
 	div
 		padding: 10px
 .container
-
+	padding-bottom: 150px
 	display: flex
-	
+.wrapper-text
+	width: 50%
 .wrapper-slider
 	max-width: 720px
 	display: flex
@@ -249,6 +250,8 @@ body
 		width: calc(25% - 16px)
 		margin-bottom: 24px
 		display: flex
+		+sm
+			width: 100%
 		&_lg
 			width: calc(50% - 10px)
 		&_double

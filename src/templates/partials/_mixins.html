@@ -2,6 +2,36 @@
 <svg class="icon icon-{{i}}"><use xlink:href="img/sprite.svg#icon-{{i}}"></use></svg>
 {% endmacro %}
 
+{% macro header(props) %}
+<header class="header js-header {% if props.headerDark %} header_dark {% endif %} {{props.mod}}">
+  <div class="header__logo">
+    <div class="logo">{{icon('logo')}}</div>
+  </div>
+  <div class="header__content js-header-content">
+    <div class="header__inner">
+      <div class="header__nav">
+        <nav class="nav">
+          {% for link in props.nav %}
+          <a href="#" class="nav__item {% if link.active %} is-active {% endif %}">{{link.title}}</a>
+          {% endfor %}
+        </nav>
+      </div>
+      <div class="header__socials">
+        <div class="socials">
+          <a href="#">{{icon('facebook')}}</a>
+          <a href="#">{{icon('instagram')}}</a>
+          <a href="#">{{icon('spotify')}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="header__burger js-burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+{% endmacro %}
 
 {% macro artist(props) %}
 <div class="artist" style="background-image: url('{{props.img}}')">
@@ -12,4 +42,36 @@
     </div>
   </div>
 </div>
+{% endmacro %}
+
+
+{% macro text(props) %}
+
+    <div class="additional">
+        <div class="additional__text">
+            <p>{{props.text}}</p>
+        </div>
+        <div class="additional__img">
+           <img src="{{props.img}}" alt=""/>
+           
+        </div>
+        <button class="btn_red"></button>
+    </div>
+{% endmacro %}
+
+{% macro news(props) %}
+<a href="#" class="news {% if props.lg %} news_lg {% endif %}">
+  <div class="news__img" style="background-image: url('{{props.img}}')">
+  </div>
+  <div class="news__content">
+    <div class="news__date date">{{props.date}}</div>
+    <div class="news__title heading-2 title">{{props.title}}</div>
+    <p>{{props.description}}</p>
+  </div>
+</a>
+{% endmacro %}
+
+
+{% macro btn(props) %}
+<a href="#" class="btn {{props.mod}}">{{props.text}}</a>
 {% endmacro %}

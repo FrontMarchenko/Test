@@ -1,8 +1,39 @@
 import sayHello from './lib/sayHello.js';
-
 sayHello();
+import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable, TimelineLite } from 'gsap';
+
+var tl = new TimelineLite()
+
+tl
+	.from( $('.logo__u'), 2, {
+  		y: -30
+})
+	.from( $('.logo__r'), 1, {
+		rotation: 18,
+		transformOrigin: "100% 50%"
+	},"-=1.5")
+	.from( $('.logo__i'), 2, {
+		y: "100%"
+	},"-=1.5")
+	.from( $('.logo__t-top'), 2, {
+		x: "100%"
+	},"-=1.5")
+	.from( $('.logo__t-bottom'), 2, {
+		y: "-100%"
+	},"-=1.5")
+	.from( $('.logo__y'), 2, {
+		x: "100%",
+		rotation: 45,
+		transformOrigin: "0% 0%"
+	},"-=2");
+
+//scroll
+
+
 import AOS from './lib/aos.js';
 import 'slick-carousel';
+// import headerScroll from './components/headerScroll.js';
+// headerScroll ();
 // import AOS from'./lib/aos.js';
 // import vhCheck from 'vh-check';
 // import 'owl.carousel';
@@ -144,22 +175,11 @@ $('.slider-for').slick({
 
 
 
-//scroll
 
-var oldScrollY = 0;
-var div = document.getElementById("fixedDiv");
 
-window.onscroll = function() {
-  var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-  var dY = scrolled - oldScrollY;
 
-  if ( dY > 0 ){
-    div.className = "fixed is-hidden";
-  } else {
-    div.className = "fixed is-visible";
-  }
+
+
+
+
   
-  oldScrollY = scrolled;
-}
-
-

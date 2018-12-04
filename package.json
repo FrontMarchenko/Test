@@ -72,6 +72,7 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.2",
     "aos": "^2.3.4",
+    "gsap": "^2.0.2",
     "owl.carousel": "^2.3.4",
     "slick-carousel": "^1.8.1",
     "vh-check": "^2.0.5"
