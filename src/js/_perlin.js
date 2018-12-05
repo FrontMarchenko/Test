@@ -65,6 +65,7 @@
 //   }
 
 // }
+
 var yoff = 0.0022;        // 2nd dimension of perlin noise
 
 function setup() {
