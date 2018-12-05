@@ -2,8 +2,8 @@ import sayHello from './lib/sayHello.js';
 sayHello();
 import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable, TimelineLite } from 'gsap';
 import header from "./_header";
-import './_perlin.js';
-import './_sketch.js';
+// import './_perlin.js';
+// import './_sketch.js';
 header();
 
 
