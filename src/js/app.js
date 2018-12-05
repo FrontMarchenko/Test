@@ -2,7 +2,8 @@ import sayHello from './lib/sayHello.js';
 sayHello();
 import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable, TimelineLite } from 'gsap';
 import header from "./_header";
-// import './_perlin.js';
+
+import PerlinNoise from './_perlin.js';
 // import './_sketch.js';
 header();
 
@@ -182,7 +183,47 @@ $('.slider-for').slick({
 
 
 
+if ($('.js-canvas').length){
+  createCanvas()
+}
+function createCanvas() {
+  let canvas = document.createElement('canvas');
+  canvas.width = 1000
+  canvas.height = 500
+  let ctx = canvas.getContext('2d');
+  
+  console.log(canvas);
+  let canvasDiv = document.getElementsByClassName('js-canvas')[0];
+  const num = 100;
 
+function random(num) {
+  return Math.floor( Math.random()*num );
+}
+
+function draww() {
+
+  ctx.save();
+  ctx.beginPath();
+  for (var i = 0; i < num; i++) {
+    ctx.lineTo( i*10, 400*PerlinNoise(i/20,time/200+i/1000,0));
+  }
+  ctx.strokeStyle = '#fff';
+  ctx.globalAlpha=0.05;
+  ctx.stroke();
+  ctx.restore();
+}
+
+let time = 0;
+
+function render() {
+  draww();
+  time++;
+  window.requestAnimationFrame(render);
+}
+
+render();
+  canvasDiv.appendChild(canvas)
+}
 
 
 
