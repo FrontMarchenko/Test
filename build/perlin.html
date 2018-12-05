@@ -1,10 +1,59 @@
+<!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="js/_sketch.js"></script>
-    <script language="javascript" type="text/javascript" src="js/_perlin.js"></script>
+    <meta charset="utf-8" />
+    <title>Index page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" media="all" href="css/app.css" />
   </head>
   <body>
+    <!-- BEGIN content -->
+    <div class="out">
+      <script>
+        var yoff = 0.0022; // 2nd dimension of perlin noise
+        function setup()
+        {
+          createCanvas(710, 400);
+        }
+
+        function draw()
+        {
+          background(255);
+          fill(255);
+          // We are going to draw a polygon out of the wave points
+          // beginShape(); 
+          var xoff = 0.022; // Option #1: 2D Noise
+          // var xoff = yoff; // Option #2: 1D Noise
+          // var zoff = 10;
+          // Iterate over horizontal pixels
+          for (var x = 1; x <= width; x += 10)
+          {
+            // Calculate a y value according to noise, map to 
+            // Option #1: 2D Noise
+            // var y = map(noise(xoff, yoff), 0, 1, 200,300);
+            // Option #2: 1D Noise
+            var y = map(noise(xoff, yoff), 0, 1, 10, 300);
+            // Set the vertex
+            vertex(x, y);
+            // Increment x dimension for noise
+            xoff += 0.022;
+          }
+          // increment y dimension for noise
+          yoff += 0.022;
+          vertex(width, height);
+          vertex(0, height);
+          endShape(CLOSE);
+        }
+
+      </script>
+    </div>
+    <!-- END content -->
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <!-- END scripts -->
   </body>
 </html>
