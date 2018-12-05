@@ -189,39 +189,37 @@ if ($('.js-canvas').length){
 function createCanvas() {
   let canvas = document.createElement('canvas');
   canvas.width = 1000
-  canvas.height = 500
+  canvas.height = 600
   let ctx = canvas.getContext('2d');
   
   console.log(canvas);
   let canvasDiv = document.getElementsByClassName('js-canvas')[0];
   const num = 100;
 
-function random(num) {
-  return Math.floor( Math.random()*num );
-}
 
-function draww() {
 
-  ctx.save();
+function draw() {
+
+ 
   ctx.beginPath();
   for (var i = 0; i < num; i++) {
-    ctx.lineTo( i*10, 400*PerlinNoise(i/20,time/200+i/1000,0));
+    ctx.lineTo( i*20, 600*PerlinNoise( i/20,time/speed+i/100,90));
   }
   ctx.strokeStyle = '#fff';
-  ctx.globalAlpha=0.05;
+  ctx.globalAlpha = 0.05;
   ctx.stroke();
-  ctx.restore();
+
 }
+let speed = 222;
+let time = 1;
 
-let time = 0;
-
-function render() {
-  draww();
+function renderWave() {
+  draw();
   time++;
-  window.requestAnimationFrame(render);
+  window.requestAnimationFrame(renderWave);
 }
 
-render();
+renderWave();
   canvasDiv.appendChild(canvas)
 }
 
