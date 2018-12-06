@@ -214,8 +214,9 @@ let speed = 222;
 let time = 1;
 
 function renderWave() {
-  draw();
   time++;
+  draw();
+  
   window.requestAnimationFrame(renderWave);
 }
 

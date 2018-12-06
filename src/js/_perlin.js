@@ -66,7 +66,7 @@
 
 // }
 
-export default function PerlinNoise (x, y, z) {
+function PerlinNoise (x, y, z) {
 
   
      var p = new Array(512)
@@ -118,3 +118,4 @@ export default function PerlinNoise (x, y, z) {
      } 
      function scale(n) { return (1 + n)/2; }
   
+     module.exports = PerlinNoise;
