@@ -194,7 +194,7 @@ function createCanvas() {
   
   console.log(canvas);
   let canvasDiv = document.getElementsByClassName('js-canvas')[0];
-  const num = 100;
+  let per = 100;
 
 
 
@@ -202,12 +202,12 @@ function draw() {
 
  
   ctx.beginPath();
-  for (var i = 0; i < num; i++) {
-    ctx.lineTo( i*20, 600*PerlinNoise( i/20,time/speed+i/100,90));
+  for (var i = 0; i < per; i++) {
+    ctx.lineTo( per*(i*Math.sin(90)/5 * Math.PI /5), 600*PerlinNoise( i/20,time/speed+i/100,90));
   }
-  ctx.strokeStyle = '#fff';
-  ctx.globalAlpha = 0.05;
+  ctx.strokeStyle = "rgba(255,255,255,0.15)";
   ctx.stroke();
+
 
 }
 let speed = 222;
